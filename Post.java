@@ -6,8 +6,8 @@ public class Post
   private int id;
   private User poster;
   private String imageurl;
-  private ArrayList<post> nodes = new ArrayList<post>();
-  public post(String text, int id)
+  private ArrayList<Post> nodes = new ArrayList<Post>();
+  public Post(String text, int id)
   {
     this.text = text;
     this.id = id;
@@ -20,11 +20,11 @@ public class Post
   {
     return this.id;
   }
-  public user getPoster()
+  public User getPoster()
   {
     return this.poster;
   }
-  public boolean addPost(post newpost)
+  public boolean addPost(Post newpost)
   {
     if(!this.nodes.contains(newpost))
     {
@@ -34,11 +34,11 @@ public class Post
     return false;
   }
 
-  public post getPost(int id)
+  public Post getPost(int id)
   {
-for (post node : nodes)
+    for (Post node : nodes)
     {
-      if(node.getID().equals(id))
+      if(node.getID() == id)
       {
         return node;
       }
@@ -46,15 +46,15 @@ for (post node : nodes)
     return null;
   }
 
-  public boolean removeAllNodes()
-  {
-    // remove other posts
-    for(Post node: nodes)
-    {
-node.removeAllNodes();
-      nodes.remove(node);
-    }
-  }
+//   public boolean removeAllNodes()
+//   {
+//     // remove other posts
+//     for(Post node: nodes)
+//     {
+// node.removeAllNodes();
+//       nodes.remove(node);
+//     }
+//   }
   /*public boolean removeSpecificNode(int id)
   {
     for(Post node: nodes)

@@ -1,4 +1,5 @@
-public class User.java
+import java.util.*;
+public class User
 {
   private String username;
   private String imagePath;
@@ -32,6 +33,18 @@ public class User.java
   public void setImagepath()
   {
     this.imagePath = imagePath;
+  }
+  public Hashtable<Integer, String> getPostHistory()
+  {
+    Hashtable<Integer, String> posthistory = new Hashtable<Integer, String>();
+    for (Object key : listofPosts.keySet())
+    {
+    Post post = listofPosts.get(key);
+    String actualPost = post.getText();
+    posthistory.put((Integer)key, actualPost);
+    }
+    return posthistory;
+
   }
 
 }
